@@ -1,0 +1,441 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-image: linear-gradient(111.1deg, rgba(0,40,70,1) -4.8%, rgba(255,115,115,1) 82.7%, rgba(255,175,123,1) 97.2%);
+  background-size: cover;
+  color: #fff;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  text-align: left;
+}
+header img {
+  width: 50px;
+  height: 50px; 
+  border-radius: 50%; 
+  object-fit: cover;  
+  box-shadow:0 4px 16px rgba(0, 0, 0, 0.4);
+  margin-right: 5px;
+}
+
+header h4 {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  padding: 26px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3); /* Uniform background transparency */
+}
+
+/* Anime Cards */
+.anime-card {
+  background-color: rgba(90, 90, 93, 0.249);
+  border: 2px solid #a2a2a200;
+  height: 340px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  margin: 15px;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+  border-color: #f9ca24;
+}
+
+.anime-card img {
+  width: 85%;
+  margin: 15px auto;
+  height: 250px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.anime-card h3 {
+  font-size: 0.9rem;
+  color: #ecf0f1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  margin: 10px 0;
+  text-align: center;
+  transition: all 0.4s ease;  
+  text-wrap:wrap;
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis when text is too long */
+}
+
+/* Selected Anime Card */
+.anime-card.selected {
+  transform: scale(0.9);
+  text-overflow: ellipsis;
+  border-color: #ffffff;
+  box-shadow: 0 9px 25px rgba(255, 255, 255, 0.7);
+  z-index: 1; /* Bring the selected card to the front */
+}
+
+
+
+.anime-card.selected img {
+  transform: scale(1.1); /* Slightly enlarge the image */
+}
+
+.anime-card.selected h3 {
+  transform: translateY(20px); /* Shift the title down */
+  font-size: 15px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis when text is too long */
+
+}
+
+.anime-card:not(.selected):hover {
+  transform: scale(1.05); /* Reset hover effect */
+}
+
+.anime-card:not(.selected) {
+  transform: scale(1); /* Smoothly reset the size when another card is selected */
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Return the shadow back to default */
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Selected Anime Container */
+#root > div > div.selected-anime-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.selected-anime-container img {
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Return the shadow back to default */
+  border-radius: 10px;
+  margin: 20px 0; /* Add margin for spacing */
+}
+
+h3 {
+  color: #fff;
+  font-size: 1.8em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Anime Recommendation List */
+/* Anime Recommendation List */
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.anime-list .anime-card {
+  width: 200px;
+  margin: 10px;
+  height: 350px;
+}
+.anime-list .anime-card img {
+  width: 85%;
+  margin: 15px auto;
+  height: 250px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+/* Slick Slider Arrows */
+.slick-arrow.slick-prev {
+  top: 200px;
+}
+
+.slick-arrow.slick-next {
+  top: 200px;
+}
+
+.slick-slider {
+  border-radius: 10px;
+  height: 380px;
+}
+
+/* Slick Slider Spacing */
+.slick-slide {
+  padding: 0 10px; /* Add space between the cards */
+  display: flex; /* Ensure cards stay in a row */
+  justify-content: center;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.slick-track {
+  display: flex; /* Keep the slider items in a row */
+  align-items: center;
+  flex-wrap: nowrap; /* Disable wrapping */
+}
+
+/* Limit the number of visible dots to 5 */
+.slick-dots li {
+  display: inline-block;
+  visibility: visible;
+}
+
+.slick-dots li:nth-child(n+6) {
+  display: none; /* Hide dots beyond the 5th */
+}
+
+/* Customize the dot size and spacing for better appearance */
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #fff; /* Adjust dot color */
+}
+
+.slick-dots {
+  margin-top: 20px;
+}
+
+
+.input-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#user-id {
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.slider-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#hybrid-weight {
+  width: 50%;
+}
+
+
+
+/* styles.css */
+
+.error {
+  position: fixed; /* Fix position for sliding effect */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  background-color: #ffcccc; /* Light red background */
+  color: #d8000c; /* Dark red text color */
+  padding: 10px 20px;
+  border: 1px solid #d8000c; /* Dark red border */
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Transition for fading out */
+  animation: slideIn 0.5s forwards; /* Animation for sliding in */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(100%, 100%); /* Start from bottom right */
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translate(0, 0); /* Move to original position */
+    opacity: 1; /* Become visible */
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1; /* Start visible */
+  }
+  to {
+    transform: translate(100%, 100%); /* Move out to bottom right */
+    opacity: 0; /* Become invisible */
+  }
+}
+
+
+.error svg {
+  margin-right: 8px; /* Spacing for the icon */
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+
+
+
+
+
+.loading-container {
+  position: fixed; /* Center on the screen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the loading text */
+  text-align: center;  width: 100%;
+  max-width: 520px;
+  color: #fff;
+  position: relative;
+margin-top: 50px;  
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    animation: movingLine 2.4s infinite ease-in-out;
+  }
+}
+
+@keyframes movingLine {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  33.3%, 66% {
+    opacity: 0.8;
+    width: 100%;
+  }
+  
+  85% {
+    width: 0;
+    left: initial;
+    right: 0;
+    opacity: 1;
+  }
+
+  100% {
+   opacity: 0;
+   width: 0;
+  }
+}
+
+.loading-text {
+  font-size: 5vw;
+  line-height: 64px;
+  letter-spacing: 10px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-evenly;
+  span {
+    animation: moveLetters 2.4s infinite ease-in-out;
+    transform: translatex(0);
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    text-shadow: 0px 2px 10px rgba(46, 74, 81, 0.3); 
+  }
+}
+
+@for $i from 1 through 7 {
+  .loading-text span:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
+  }
+}
+
+@keyframes moveLetters {
+  0% {
+    transform: translateX(-15vw);
+    opacity: 0;
+  }
+  
+  33.3%, 66% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translateX(15vw);
+    opacity: 0;
+  }
+}
+
+
+.socials {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 12px;
+}
+.not-found-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 2px dashed #fff; /* Optional styling */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: #fff;
+  text-align: center;
+  margin: 20px; /* Spacing around the card */
+}
+
+.not-found-card .anime-card img {
+  width: 220px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.not-found-card .anime-card h3 {
+  font-size: 1.5rem; /* Adjust font size as needed */
+
+}
+
+.not-found-card .anime-card p {
+  margin-top: -6px;
+
+  font-size: 0.8rem; /* Adjust font size as needed */
+  font-weight: 500;
+}
